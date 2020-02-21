@@ -3,6 +3,7 @@ package GUI;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -15,7 +16,7 @@ public class EventCreatorView {
 
 
 
-    public static EventPackage display() {
+    public static EventPackage display () {
 
         Stage addEventStage = new Stage();
         addEventStage.initModality(Modality.APPLICATION_MODAL);
@@ -35,10 +36,16 @@ public class EventCreatorView {
         DatePicker eDate = new DatePicker();
         eContact.requestFocus();
 
+        HBox buttons = new HBox();
         Button saveBtn = new Button("Save Event");
+        Button cancelBtn = new Button("Cancel");
+        cancelBtn.setOnAction(e -> addEventStage.close());
+
+        buttons.getChildren().addAll(saveBtn, cancelBtn);
+
+
         saveBtn.setOnAction(e -> {
             if(eName.getText().equals("")){
-                System.out.println("huuue");
                 AlertView.display("Event Needs A Name");
                 return;
             } else if( eContact.getText().equals("")){
@@ -56,7 +63,7 @@ public class EventCreatorView {
             addEventStage.close();
         });
 
-        layout.getChildren().addAll(title, eName, eContact, eDate, saveBtn);
+        layout.getChildren().addAll(title, eName, eContact, eDate, buttons);
 
         addEventStage.setScene(new Scene(layout, 250, 250));
         addEventStage.showAndWait();
