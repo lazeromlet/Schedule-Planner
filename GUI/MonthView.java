@@ -16,13 +16,18 @@ public class MonthView {
     private Button monthBtn;
     private Button addEventBtn;
 
-    public void MonthView(){
+    public MonthView(){
         month = date.getMonth().toString();
     }
 
     public void display(String month){
-        YearView yearView = new YearView(date.getYear() - 1);
         this.month = month;
+        display();
+    }
+
+    public void display(){
+        YearView yearView = new YearView(date.getYear());
+
         Stage monthView = new Stage();
         BorderPane layout = new BorderPane();
         GridPane dayBtn = new GridPane();
@@ -59,9 +64,5 @@ public class MonthView {
         monthView.setTitle("Scheduling App");
         monthView.setScene(scene);
         monthView.show();
-    }
-
-    public void display(){
-        display(date.getMonth().toString());
     }
 }

@@ -36,7 +36,7 @@ public class YearView{
 
         for(int i = 0; i < 12; i++){
             String month = MONTHS[i];
-            Button monthBtn = new Button(MONTHS[i]);
+            Button monthBtn = new Button(month);
             monthBtn.setPrefSize(150, 50);
             monthBtn.setOnAction(e -> {
                 monthView.display(month);

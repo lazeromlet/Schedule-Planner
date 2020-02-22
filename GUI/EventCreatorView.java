@@ -24,6 +24,11 @@ public class EventCreatorView {
         VBox layout = new VBox();
         layout.setPadding(new Insets(10, 10, 10, 10));
 
+        ComboBox<String> eTypeDropBx = new ComboBox<>();
+        eTypeDropBx.setPromptText("Event Type");
+        eTypeDropBx.getItems().addAll("Homework", "Business", "Entertainment", "Custom");
+
+
         Text title = new Text("Create Event:");
         title.setFont(Font.font("", FontWeight.NORMAL, 20));
 
@@ -63,7 +68,7 @@ public class EventCreatorView {
             addEventStage.close();
         });
 
-        layout.getChildren().addAll(title, eName, eContact, eDate, buttons);
+        layout.getChildren().addAll(title, eTypeDropBx, eName, eContact, eDate, buttons);
 
         addEventStage.setScene(new Scene(layout, 250, 250));
         addEventStage.showAndWait();
