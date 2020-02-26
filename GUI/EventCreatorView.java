@@ -3,6 +3,7 @@ package GUI;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -15,13 +16,43 @@ public class EventCreatorView {
 
 
 
-    public static EventPackage display() {
+<<<<<<< Updated upstream
+    public static EventPackage display () {
+=======
+    public EventPackage display () {
+>>>>>>> Stashed changes
 
         Stage addEventStage = new Stage();
         addEventStage.initModality(Modality.APPLICATION_MODAL);
 
         VBox layout = new VBox();
         layout.setPadding(new Insets(10, 10, 10, 10));
+
+        ComboBox<String> eTypeDropBx = new ComboBox<>();
+        eTypeDropBx.setPromptText("Event Type");
+        eTypeDropBx.getItems().addAll("Homework", "Business", "Entertainment", "Custom");
+<<<<<<< Updated upstream
+=======
+        eTypeDropBx.setOnAction(e -> {
+            switch(e.getSource().toString()) {
+                case "Homework":
+//                    ????????????????????????????????????
+                    break;
+                case "Business":
+                    // code block
+                    break;
+                case "Entertainment":
+                    // code block
+                    break;
+                case "Custom":
+                    // code block
+                    break;
+                default:
+                    // code block
+            }
+        });
+>>>>>>> Stashed changes
+
 
         Text title = new Text("Create Event:");
         title.setFont(Font.font("", FontWeight.NORMAL, 20));
@@ -35,10 +66,16 @@ public class EventCreatorView {
         DatePicker eDate = new DatePicker();
         eContact.requestFocus();
 
+        HBox buttons = new HBox();
         Button saveBtn = new Button("Save Event");
+        Button cancelBtn = new Button("Cancel");
+        cancelBtn.setOnAction(e -> addEventStage.close());
+
+        buttons.getChildren().addAll(saveBtn, cancelBtn);
+
+
         saveBtn.setOnAction(e -> {
             if(eName.getText().equals("")){
-                System.out.println("huuue");
                 AlertView.display("Event Needs A Name");
                 return;
             } else if( eContact.getText().equals("")){
@@ -56,7 +93,7 @@ public class EventCreatorView {
             addEventStage.close();
         });
 
-        layout.getChildren().addAll(title, eName, eContact, eDate, saveBtn);
+        layout.getChildren().addAll(title, eTypeDropBx, eName, eContact, eDate, buttons);
 
         addEventStage.setScene(new Scene(layout, 250, 250));
         addEventStage.showAndWait();

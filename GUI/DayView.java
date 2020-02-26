@@ -1,5 +1,7 @@
 package GUI;
 
+import projEvents.Events;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;

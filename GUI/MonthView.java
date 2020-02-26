@@ -1,50 +1,62 @@
 package GUI;
 
-import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-
 import java.time.LocalDate;
-import java.util.Date;
 
 public class MonthView {
 
-    private final String[] MONTHS = {"January", "February",
-            "March", "April", "May", "June", "July",
-            "August", "September", "October", "November",
-            "December"};
-
+    private LocalDate date = LocalDate.now();
+    private String month;
     private Button[][] dayButtons;
-    private Button month;
+    private Button monthBtn;
     private Button addEventBtn;
-    private EventPackage ePackage;
+
+    public MonthView(){
+        month = date.getMonth().toString();
+    }
+
+    public void display(String month){
+        this.month = month;
+        display();
+    }
 
     public void display(){
+        YearView yearView = new YearView(date.getYear());
+<<<<<<< Updated upstream
+=======
+        EventCreatorView eventCreatorView = new EventCreatorView();
+>>>>>>> Stashed changes
+
         Stage monthView = new Stage();
         BorderPane layout = new BorderPane();
         GridPane dayBtn = new GridPane();
+        HBox topBtn = new HBox();
 
-        month = new Button(MONTHS[new Date().getMonth()]);
-        month.setOnAction(e -> yearView.display("2020"));
-        layout.setTop(month);
-
-        addEventBtn = new Button("+");
-        addEventBtn.setOnAction(e -> {
-            ePackage = EventCreatorView.display();
-            System.out.println(ePackage.getEventName()+ "\n" + ePackage.getEventContactName() +
-                    "\n" + ePackage.getEventDate());
+        monthBtn = new Button(month);
+        monthBtn.setOnAction(e -> {
+            yearView.display();
+            monthView.close();
         });
-        layout.setTop(addEventBtn);
+        addEventBtn = new Button(" + ");
+<<<<<<< Updated upstream
+        addEventBtn.setOnAction(e -> EventCreatorView.display());
+=======
+        addEventBtn.setOnAction(e -> eventCreatorView.display());
+
+>>>>>>> Stashed changes
+        topBtn.getChildren().addAll(monthBtn, addEventBtn);
+        layout.setTop(topBtn);
 
         dayButtons = new Button[5][7];
 
-        int count = 1;
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 7; j++) {
-                dayButtons[i][j] = new Button("" + count);
+                dayButtons[i][j] = new Button("");
                 Button day = dayButtons[i][j];
 
                 day.setOnAction(e -> DayView.display());
@@ -52,8 +64,6 @@ public class MonthView {
                 day.setPrefSize(50, 50);
                 GridPane.setConstraints(day, j, i);
                 dayBtn.getChildren().add(day);
-
-                count++;
             }
         }
         layout.setCenter(dayBtn);

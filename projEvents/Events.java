@@ -1,7 +1,10 @@
 package projEvents;
+
+
 import java.util.Date;
 
-public class Events{
+public class Events {
+
     String name;
     String details;
     Date due;
@@ -9,6 +12,7 @@ public class Events{
     public Date getDue() {
         return this.due;
     }
+
     public String getDetails() {
         return this.details;
     }

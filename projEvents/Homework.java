@@ -1,13 +1,14 @@
 package projEvents;
+
 import java.util.Date;
 
-public class Homework extends Events{
+public class Homework extends Events {
     String turnInPlace;
     String classFor;
     int gradeGot;
     int gradeOut;
 
-    public Homework(String name, String details, Date due, String turnInPlace, String classFor){
+    public Homework(String name, String details, Date due, String turnInPlace, String classFor) {
         setName(name);
         setDetails(details);
         setDue(due);
@@ -15,9 +16,10 @@ public class Homework extends Events{
         setclassFor(classFor);
     }
 
-    public Homework(){}
-    
-    public Homework(String name, String details, Date due, String turnInPlace, String classFor,int gradeOut){
+    public Homework() {
+    }
+
+    public Homework(String name, String details, Date due, String turnInPlace, String classFor, int gradeOut) {
         setName(name);
         setDetails(details);
         setDue(due);
@@ -33,6 +35,7 @@ public class Homework extends Events{
     public String getturnInPlace() {
         return turnInPlace;
     }
+
     public String getclassFor() {
         return classFor;
     }
@@ -41,7 +44,8 @@ public class Homework extends Events{
         return gradeGot;
     }
 
-    public int gradeOut(){
+    public int gradeOut() {
+
         return gradeOut;
     }
 
@@ -59,7 +63,8 @@ public class Homework extends Events{
     public void setgradeGot(int gradeGot) {
         this.gradeGot = gradeGot;
     }
-    public void setgradeOut(int gradeOut){
+
+    public void setgradeOut(int gradeOut) {
         this.gradeOut = gradeOut;
     }
 }
