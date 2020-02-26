@@ -27,6 +27,10 @@ public class MonthView {
 
     public void display(){
         YearView yearView = new YearView(date.getYear());
+<<<<<<< Updated upstream
+=======
+        EventCreatorView eventCreatorView = new EventCreatorView();
+>>>>>>> Stashed changes
 
         Stage monthView = new Stage();
         BorderPane layout = new BorderPane();
@@ -39,7 +43,12 @@ public class MonthView {
             monthView.close();
         });
         addEventBtn = new Button(" + ");
+<<<<<<< Updated upstream
         addEventBtn.setOnAction(e -> EventCreatorView.display());
+=======
+        addEventBtn.setOnAction(e -> eventCreatorView.display());
+
+>>>>>>> Stashed changes
         topBtn.getChildren().addAll(monthBtn, addEventBtn);
         layout.setTop(topBtn);
 

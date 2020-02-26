@@ -16,7 +16,11 @@ public class EventCreatorView {
 
 
 
+<<<<<<< Updated upstream
     public static EventPackage display () {
+=======
+    public EventPackage display () {
+>>>>>>> Stashed changes
 
         Stage addEventStage = new Stage();
         addEventStage.initModality(Modality.APPLICATION_MODAL);
@@ -27,6 +31,27 @@ public class EventCreatorView {
         ComboBox<String> eTypeDropBx = new ComboBox<>();
         eTypeDropBx.setPromptText("Event Type");
         eTypeDropBx.getItems().addAll("Homework", "Business", "Entertainment", "Custom");
+<<<<<<< Updated upstream
+=======
+        eTypeDropBx.setOnAction(e -> {
+            switch(e.getSource().toString()) {
+                case "Homework":
+//                    ????????????????????????????????????
+                    break;
+                case "Business":
+                    // code block
+                    break;
+                case "Entertainment":
+                    // code block
+                    break;
+                case "Custom":
+                    // code block
+                    break;
+                default:
+                    // code block
+            }
+        });
+>>>>>>> Stashed changes
 
 
         Text title = new Text("Create Event:");
