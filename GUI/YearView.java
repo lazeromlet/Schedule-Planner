@@ -4,42 +4,48 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import java.util.Date;
+
+import java.time.LocalDate;
 
 /**
- * The View which displays all of the months for the user to select from.
+ * The View which displays all of the months for the user to select from. Will also be
+ * able to diplay an expanded view which will display a selection of past and furure
+ * years.
  */
 public class YearView{
-
+    private LocalDate date = LocalDate.now();
     private int year;
     /**
-     * String to hol
+     * A
      */
-    private final static String[] MONTHS = {"January", "February",
+    private final String[] MONTHS = {"January", "February",
             "March", "April", "May", "June", "July",
             "August", "September", "October", "November",
             "December"};
 
-    private static int monthValue;
     /**
-     * @param year
+     *
      */
 
-    public YearView(int year){
-        this.year = year;
+    public YearView(){
+        this.year = date.getYear();
     }
-    public void display() {
+
+    public void display(LocalDate date) {
+        this.date = date;
+        display();
+    }
+        public void display() {
 
         MonthView monthView = new MonthView();
         GridPane layout = new GridPane();
         Stage yearView = new Stage();
-
         for(int i = 0; i < 12; i++){
-            String month = MONTHS[i];
-            Button monthBtn = new Button(month);
+            int month = i;
+            Button monthBtn = new Button(MONTHS[i]);
             monthBtn.setPrefSize(150, 50);
             monthBtn.setOnAction(e -> {
-                monthView.display(month);
+                monthView.display(date.withMonth(month + 1));
                 yearView.close();
             });
             GridPane.setConstraints(monthBtn,(i % 3), (i / 3));
