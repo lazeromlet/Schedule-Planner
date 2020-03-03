@@ -11,12 +11,22 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * EventCreatorView will diplay a window based on the user's selected event type.
+ * There is still a bunch of work to be done here, but the idea is to have a user
+ * enter in the required info, then relay that info to main, which will in turn create
+ * an event to be stored for later use.
+ */
 public class EventCreatorView {
     private static EventPackage dummy;
 
 
-
-    public EventPackage display () {
+    /**
+     * This method will be called when the user chooses to create a new event.
+     * Based on what the user selects, this method will then call the window,
+     * which is where the user will be prompted for info about the new event.
+     */
+    public void display () {
 
         Stage addEventStage = new Stage();
         addEventStage.initModality(Modality.APPLICATION_MODAL);
@@ -90,8 +100,5 @@ public class EventCreatorView {
 
         addEventStage.setScene(new Scene(layout, 250, 250));
         addEventStage.showAndWait();
-
-
-        return dummy;
     }
 }

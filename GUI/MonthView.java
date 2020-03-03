@@ -102,7 +102,6 @@ public class MonthView {
         dayButtons = new Button[6][7];
 
         int day = dayMonthBegins(date.getMonthValue(), date.getYear());
-        System.out.println(day);
         int count = 1;
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
@@ -139,8 +138,6 @@ public class MonthView {
         int y = year - (14 - month) / 12;
         int x = y + y/4 - y/100 + y/400;
         int m = month + 12 * ((14 - month) / 12) - 2;
-        int d = (1 + x + (31*m)/12) % 7;
-        System.out.println("here" + d);
-        return d;
+        return (1 + x + (31*m)/12) % 7;
     }
 }
