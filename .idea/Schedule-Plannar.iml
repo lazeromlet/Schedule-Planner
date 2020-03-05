@@ -5,9 +5,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-<<<<<<< Updated upstream:.idea/Schedule-Plannar.iml
     <orderEntry type="library" name="bin" level="project" />
-=======
->>>>>>> Stashed changes:GUI/.idea/sample.iml
   </component>
 </module>
