@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 public class EventCreatorView {
     private static EventPackage dummy;
 
-
     /**
      * This method will be called when the user chooses to create a new event.
      * Based on what the user selects, this method will then call the window,

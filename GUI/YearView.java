@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * years.
  */
 public class YearView{
-    private LocalDate date = LocalDate.now();
+    private LocalDate date;
     private int year;
     /**
      * A
@@ -27,15 +27,9 @@ public class YearView{
      *
      */
 
-    public YearView(){
-        this.year = date.getYear();
-    }
+    public YearView(){ }
 
     public void display(LocalDate date) {
-        this.date = date;
-        display();
-    }
-        public void display() {
 
         MonthView monthView = new MonthView();
         GridPane layout = new GridPane();
@@ -52,7 +46,7 @@ public class YearView{
             layout.getChildren().add(monthBtn);
         }
 
-        yearView.setTitle("" + year);
+        yearView.setTitle("" + date.getYear());
         yearView.setScene(new Scene(layout));
         yearView.show();
 
