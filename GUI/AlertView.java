@@ -7,7 +7,12 @@ import javafx.scene.control.*;
 import javafx.geometry.*;
 
 public class AlertView {
-
+    /**
+     * Alert View will be used when displaying alerts to the user. Will create a
+     * popup window that will explain the nature of the error found.
+     * @param message Message that you want to display to the user when there is
+     *                an error in the input for the event creator.
+     */
     public static void display(String message) {
         Stage alert = new Stage();
 
