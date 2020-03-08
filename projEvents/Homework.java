@@ -4,6 +4,12 @@ import java.util.Date;
 /**
  @author: Ayden Martin
  @Version: 1.0
+ * Homework is an extension of the Events class, and thus has all of the Event class features
+ * This means Homework by default has a Name,Detail,and Date variable
+ * Homework also has object specific variables that no other event should have besides the Homework object
+ * such as: TurnInPlace, ClassFor, GradeGot, GradeOut
+ * These variables are to make the homework object be able to contain all the information a student should wish to know
+ * about their assignment
  */
 public class Homework extends Events{
 
