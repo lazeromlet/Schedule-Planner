@@ -4,6 +4,10 @@ import java.util.Date;
 /**
  @author: Ayden Martin
  @Version: 1.0
+ * Events is a class that will be the default object that is created for the schedule planner, 
+ * All other objects that are created for the calander will be an implementation of Events
+ * Thus all calander objects will have a 
+ * Name, Details, and Date attached to them
  */
 
 
